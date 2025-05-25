@@ -20,21 +20,15 @@ public class Flap : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(Vector2.up*jumpForce, ForceMode2D.Impulse);
+
+
         }
     }
 
     void FixedUpdate()
     {
-        //* in spite of using FixedUpdate for physic moves such as Rigidbody,AddForce is recommended, ForceMode.Impulse (included 2D) is better using in Update as it is not depend on Time :D . Same for Raycastings
-        // if (isJumping)
-        // {
-        //     rb.AddForce(Vector2.up*jumpForce, ForceMode2D.Impulse);
-        //     isJumping = false;
-        // }
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        Debug.Log("Game Over");
+        var reMapResult = rb.velocity.y * 90f/20f;
+        Debug.Log(reMapResult);
+        this.transform.rotation = Quaternion.Euler(0f, 0f, reMapResult);
     }
 }

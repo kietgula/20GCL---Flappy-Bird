@@ -18,6 +18,13 @@ public class FlappyBird : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Game Over");
+        if (col.CompareTag("score"))
+        {
+            GameManager.singleton.PlusScore();
+        }
+        else
+        {
+            GameManager.singleton.GameOver();
+        }
     }
 }

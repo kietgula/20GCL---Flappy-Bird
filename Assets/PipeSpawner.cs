@@ -20,7 +20,7 @@ public class PipeSpawner : MonoBehaviour
     {
         if ( nextSpawnTime < Time.time)
         {
-            nextSpawnTime = Time.time + 1/density + Random.Range(-1f*offset, offset);
+            nextSpawnTime = Time.time + 1/density + Random.Range(0, offset);
 
             GameObject newPipe = Instantiate(PipePrefab, transform);
             newPipe.transform.position = new Vector3(10, Random.Range(-2f,3f),2);
